@@ -34,7 +34,9 @@ Here is a quick look at how every method in our code behaves under the hood:
 Instead of manually opening and closing things, our program initializes `Connection` and `Statement` inside a `try()` block like this:
 
 try (Connection con = ...; Statement st = ...) { 
+
     // code runs here 
+    
 }
 
 Because of this, the Java Virtual Machine (JVM) guarantees that the database connection and socket channels are automatically closed the exact moment the block finishes. This eliminates memory wastage and keeps the database server running fast.
