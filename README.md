@@ -47,6 +47,7 @@ name: A Variable Character Array (VARCHAR) tracking text up to a maximum length 
  Complete Program Pseudocode
 
 START
+
     // Step 1: Main Control Execution
     CALL Method connectMySql()
     
