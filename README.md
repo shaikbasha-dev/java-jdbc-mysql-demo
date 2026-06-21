@@ -1,11 +1,11 @@
 # JDBC with MySQL Demo Project
 
-## 📌 Project Overview
+##  Project Overview
 This project demonstrates how a Java application connects to a MySQL database using JDBC (Java Database Connectivity). It breaks down how to build database schemas, insert table rows, and manage active system connections cleanly.
 
 ---
 
-## 🛠️ Technologies Used
+##  Technologies Used
 * **Java** (Programming Language)
 * **JDBC API** (Database Connection Management)
 * **MySQL** (Database Server Engine)
@@ -13,7 +13,7 @@ This project demonstrates how a Java application connects to a MySQL database us
 
 ---
 
-## 📋 Method Registry & Technical Specs
+##  Method Registry & Technical Specs
 
 Here is a quick look at how every method in our code behaves under the hood:
 
@@ -26,25 +26,25 @@ Here is a quick look at how every method in our code behaves under the hood:
 
 ---
 
-## 🏗️ Architectural Processes Explained
+##  Architectural Processes Explained
 
-### 1. Automatic Resource Management (Try-With-Resources) 
+### 1. Automatic Resource Management (Try-With-Resources)
 Instead of manually opening and closing things, our program initializes `Connection` and `Statement` inside a `try()` block like this:
-```java
+
 try (Connection con = ...; Statement st = ...) { 
     // code runs here 
 }
+
 Because of this, the Java Virtual Machine (JVM) guarantees that the database connection and socket channels are automatically closed the exact moment the block finishes. This eliminates memory wastage and keeps the database server running fast.
 
-**2. Table Structural Design Map**
-
+2. Table Structural Design Map
 The createTable() method creates a database structure named trainers based on this explicit schema map:
 
 id: An Integer field to hold numeric identifiers.
 
 name: A Variable Character Array (VARCHAR) tracking text up to a maximum length of 10 characters.
 
-**📑 Complete Program Pseudocode**
+ Complete Program Pseudocode
 
 START
     // Step 1: Main Control Execution
@@ -78,8 +78,7 @@ START
     END METHOD
 END
 
-** 📈 Expected Outputs**
-
+ Expected Outputs
 output from connectMySql():
 Rows Updated: 1
 Connection Successful: com.mysql.cj.jdbc.ConnectionImpl@2a139a55
@@ -90,7 +89,7 @@ Table created successfully
 output from insertRow():
 Inserted rows : 1
 
-**🚨 Runtime Exception Management Matrix**
+ Runtime Exception Management Matrix
 The system tracks and logs specific database driver warnings and errors directly via console dumps:
 
 SQLException: Triggers due to access verification blocks, incorrect password hashes, or offline ports.
@@ -99,8 +98,6 @@ SQLSyntaxErrorException: Thrown if raw queries contain structural syntax typos o
 
 Communications Link Failure: Triggers when the localized database daemon background engine goes offline.
 
-**📝 Project Summary**
+ Project Summary
 This JDBC utility highlights how a backend Java application communicates with relational databases. By separating actions into isolated methods (connectMySql, createTable, insertRow), the project follows clean architecture principles, making it an excellent baseline for enterprise Java development.
-
-
 
