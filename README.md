@@ -33,11 +33,11 @@ Here is a quick look at how every method in our code behaves under the hood:
 
 Instead of manually opening and closing things, our program initializes `Connection` and `Statement` inside a `try()` block like this:
 
-try (Connection con = ...; Statement st = ...) { 
+    try (Connection con = ...; Statement st = ...) { 
 
-    // code runs here 
+        // code runs here 
     
-}
+    }
 
 Because of this, the Java Virtual Machine (JVM) guarantees that the database connection and socket channels are automatically closed the exact moment the block finishes. This eliminates memory wastage and keeps the database server running fast.
 
@@ -53,35 +53,35 @@ name: A Variable Character Array (VARCHAR) tracking text up to a maximum length 
 
     START
     
-    // Step 1: Main Control Execution
-    CALL Method connectMySql()
+        // Step 1: Main Control Execution
+        CALL Method connectMySql()
     
-    // Step 2: Database Connection & Default Insert
-    METHOD connectMySql()
-        SET database credentials (URL, User, Password)
-        SET sql = "INSERT INTO sample VALUES(999, 'Anusha')"
-        OPEN connection and statement container
-        EXECUTE sql update query
-        PRINT success messages
-    END METHOD
+        // Step 2: Database Connection & Default Insert
+        METHOD connectMySql()
+            SET database credentials (URL, User, Password)
+            SET sql = "INSERT INTO sample VALUES(999, 'Anusha')"
+            OPEN connection and statement container
+            EXECUTE sql update query
+            PRINT success messages
+        END METHOD
 
-    // Step 3: Schema Structural Setup
-    METHOD createTable()
-        SET database credentials
-        SET sql = "CREATE TABLE trainers(id INT, name VARCHAR(10))"
-        OPEN connection and statement container
-        EXECUTE sql create query
-        PRINT "Table created successfully"
-    END METHOD
+        // Step 3: Schema Structural Setup
+        METHOD createTable()
+            SET database credentials
+            SET sql = "CREATE TABLE trainers(id INT, name VARCHAR(10))"
+            OPEN connection and statement container
+            EXECUTE sql create query
+            PRINT "Table created successfully"
+        END METHOD
 
-    // Step 4: Data Entry Setup
-    METHOD insertRow()
-        SET database credentials
-        SET sql = "INSERT INTO trainers VALUES(1,'DEEP')"
-        OPEN connection and statement container
-        EXECUTE sql insert query
-        PRINT row update count
-    END METHOD
+        // Step 4: Data Entry Setup
+        METHOD insertRow()
+            SET database credentials
+            SET sql = "INSERT INTO trainers VALUES(1,'DEEP')"
+            OPEN connection and statement container
+            EXECUTE sql insert query
+            PRINT row update count
+        END METHOD
     END
 
 ### Expected Outputs
@@ -97,9 +97,11 @@ output from createTable():
 
 Table created successfully
 
+
 output from insertRow():
 
 Inserted rows : 1
+
 
 ### Runtime Exception Management Matrix
 
@@ -110,6 +112,7 @@ SQLException: Triggers due to access verification blocks, incorrect password has
 SQLSyntaxErrorException: Thrown if raw queries contain structural syntax typos or target column properties that do not exist.
 
 Communications Link Failure: Triggers when the localized database daemon background engine goes offline.
+
 
 ### Project Summary
 
