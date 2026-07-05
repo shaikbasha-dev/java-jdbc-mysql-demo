@@ -5,12 +5,14 @@ import java.sql.*;
  * Description: Orchestrates standard schema creation and decoupled record 
  * entry processes using native JDBC database drivers.
  */
+
 public class MySqlDemo {
 
     /**
      * Headline: Application Entry Point
      * Description: Safely passes checked exceptions up the stack trace while executing database operations.
      */
+    
     public static void main(String[] args) throws Exception {
         // Step 1: Fire default data insertion routing verification
         connectMySql();
@@ -24,6 +26,7 @@ public class MySqlDemo {
      * Headline: Default MySQL Data Connectivity Verification
      * Description: Establishes a socket network session and attempts an automatic try-with-resources insert operation.
      */
+    
     public static void connectMySql() throws Exception {
         String url = "jdbc:mysql://localhost:3306/test";
         String user = "root";
@@ -45,6 +48,7 @@ public class MySqlDemo {
      * Headline: Programmatic DDL Schema Creation Routine
      * Description: Generates a persistent structure named 'trainers' securely inside the targeted workspace.
      */
+    
     public static void createTable() throws Exception {
         String url = "jdbc:mysql://localhost:3306/test";
         String user = "root";
@@ -64,6 +68,7 @@ public class MySqlDemo {
      * Headline: Standard DML Record Write Sequence
      * Description: Targets the newly provisioned 'trainers' dataset schema block to append static parameters.
      */
+    
     public static void insertRow() throws Exception {
         String url = "jdbc:mysql://localhost:3306/test";
         String user = "root";
